@@ -56,6 +56,7 @@ $route['login'] = 'login';
 $route['dashboard'] = 'dashboard';
 // // route untuk halaman register
 $route['register/(:any)'] = 'welcome/register/$1';
+$route['input'] = 'welcome/input';
 // route URL SEO untuk artikel
 $route['(:any)'] = 'welcome/single/$1';
 $route['404_override'] = 'welcome/notfound';

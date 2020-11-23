@@ -50,7 +50,7 @@
 					}
 				}
 				?>
-				<form action="<?php echo base_url('welcome/form_submit'); ?>" method="post">
+				<form action="<?php echo base_url('welcome/form_submit_input'); ?>" method="post">
 					<label>Nama</label>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" placeholder="Isi dengan nama lengkap" name="nama" required>

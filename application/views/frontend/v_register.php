@@ -50,11 +50,13 @@
 					}
 				}
 				?>
-				<form action="<?php echo base_url('welcome/form_submit2'); ?>" method="post">
+				<form action="<?php echo base_url('welcome/form_submit_register'); ?>" method="post">
 				<!-- <?php echo $links['linksNama'] ?> -->
 					<label>Nama</label>
 					<div class="input-group mb-3">
 					<input type="text" name="slug" value="<?php echo $links['linksSlug'] ?>" hidden>
+					<input type="text" name="grup" value="<?php echo $links['linksNama'] ?>" hidden>
+					<input type="text" name="tipe_grup" value="<?php echo $links['linksTipe'] ?>" hidden>
 						<input type="text" class="form-control" placeholder="Isi dengan nama lengkap" name="nama" required>
 						<div class="input-group-append">
 							<div class="input-group-text">

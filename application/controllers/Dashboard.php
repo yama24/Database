@@ -105,6 +105,9 @@ class Dashboard extends CI_Controller
 
 			$data = array(
 				'basis_nama' => $nama,
+				'slug' => "input database",
+				'grup' => "input database",
+				'tipe_grup' => "input database",
 				'basis_ttl' => $ttl,
 				'basis_gender' => $gender,
 				'basis_pekerjaan' => $pekerjaan,
@@ -178,6 +181,9 @@ class Dashboard extends CI_Controller
 			);
 			$data = array(
 				'basis_nama' => $nama,
+				'slug' => "input database",
+				'grup' => "input database",
+				'tipe_grup' => "input database",
 				'basis_ttl' => $ttl,
 				'basis_gender' => $gender,
 				'basis_pekerjaan' => $pekerjaan,
@@ -271,10 +277,15 @@ class Dashboard extends CI_Controller
 			$tipe = $this->input->post('tipe');
 			$nama = $this->input->post('nama');
 			$links = $this->input->post('link');
+			$slug =  strtolower($nama);
+			$slugFix = str_replace(" ", "-", $slug);
+			$slugFix2 = str_replace("(", "", $slugFix);
+			$slugFix3 = str_replace(")", "", $slugFix2);
 			$data = array(
 				'links_tipe' => $tipe,
 				'links_nama' => $nama,
 				'links' => $links,
+				'links_slug' => $slugFix3,
 			);
 			$this->m_data->insert_data($data, 'links');
 			redirect(base_url() . 'dashboard/links?alert=add');
@@ -293,6 +304,10 @@ class Dashboard extends CI_Controller
 			$tipe = $this->input->post('tipe');
 			$nama = $this->input->post('nama');
 			$links = $this->input->post('link');
+			$slug =  strtolower($nama);
+			$slugFix = str_replace(" ", "-", $slug);
+			$slugFix2 = str_replace("(", "", $slugFix);
+			$slugFix3 = str_replace(")", "", $slugFix2);
 			$where = array(
 				'links_id' => $id
 			);
@@ -300,6 +315,7 @@ class Dashboard extends CI_Controller
 				'links_tipe' => $tipe,
 				'links_nama' => $nama,
 				'links' => $links,
+				'links_slug' => $slugFix3,
 			);
 			$this->m_data->update_data($where, $data, 'links');
 			redirect(base_url() . 'dashboard/links?alert=update');

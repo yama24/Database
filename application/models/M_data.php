@@ -44,7 +44,28 @@ class M_data extends CI_Model
 
 	public function getBasis()
 	{
-		$this->db->select("basis.basis_id AS basisId, basis.basis_nama AS basisNama, basis.basis_ttl AS basisTtl, basis.basis_tempat_kerja AS basisTempatkerja, basis.basis_gender AS basisGender, basis.basis_pekerjaan AS basisPekerjaan, provinces.name AS provincesName, regencies.name AS regenciesName, districts.name AS districtsName, villages.name AS villagesName, provinces.id AS provincesId, regencies.id AS regenciesId, districts.id AS districtsId, villages.id AS villagesId, basis.basis_phone AS basisPhone, basis.basis_email AS basisEmail, basis.basis_datainput AS basisDatainput");
+		$this->db->select("
+		basis.basis_id AS basisId, 
+		basis.basis_nama AS basisNama, 
+		basis.basis_ttl AS basisTtl, 
+		basis.basis_tempat_kerja AS basisTempatkerja, 
+		basis.basis_gender AS basisGender, 
+		basis.basis_pekerjaan AS basisPekerjaan, 
+		provinces.name AS provincesName, 
+		regencies.name AS regenciesName, 
+		districts.name AS districtsName, 
+		villages.name AS villagesName, 
+		provinces.id AS provincesId, 
+		regencies.id AS regenciesId, 
+		districts.id AS districtsId, 
+		villages.id AS villagesId, 
+		basis.basis_phone AS basisPhone, 
+		basis.basis_email AS basisEmail, 
+		basis.basis_datainput AS basisDatainput, 
+		basis.tipe_grup AS basisTipegrup,
+		basis.grup AS basisGrup,
+		basis.slug AS basisSlug
+		");
 		$this->db->join("provinces", "basis.basis_provinsi=provinces.id");
 		$this->db->join("regencies", "basis.basis_kabupaten=regencies.id");
 		$this->db->join("districts", "basis.basis_kecamatan=districts.id");
@@ -54,7 +75,14 @@ class M_data extends CI_Model
 	}
 	public function getLinksBySlug($slug)
 	{
-		$this->db->select("*,links.links_id AS linksId, links.links_slug AS linksSlug, links.links_nama AS linksNama, links.links_tipe AS linksTipe, links.links AS links");
+		$this->db->select("
+		*,
+		links.links_id AS linksId, 
+		links.links_slug AS linksSlug, 
+		links.links_nama AS linksNama, 
+		links.links_tipe AS linksTipe, 
+		links.links AS links
+		");
 		$this->db->from("links");
 		$this->db->order_by("links.links_id", "asc");
 		$this->db->where('links.links_slug', $slug);

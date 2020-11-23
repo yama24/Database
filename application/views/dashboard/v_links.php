@@ -49,6 +49,7 @@
 										<th>Tipe</th>
 										<th>Nama</th>
 										<th>Link</th>
+										<th>Slug</th>
 										<th>Aksi</th>
 									</tr>
 								</thead>
@@ -62,6 +63,7 @@
 											<td><?php echo $l->links_tipe; ?></td>
 											<td><?php echo $l->links_nama; ?></td>
 											<td><a href="<?php echo $l->links; ?>" target="_blank"><?php echo $l->links; ?></a></td>
+											<td><a href="<?php echo base_url() . 'register/' . $l->links_slug;?>" target="_blank"><?php echo base_url() . 'register/' . $l->links_slug;?></a></td>
 											<td>
 												<center>
 													<button data-toggle="modal" data-target="#modal-edit-links<?php echo $l->links_id; ?>" class="btn btn-info btn-xs" style="width: 70px;"><i class="fas fa-edit"></i> Edit</button>
@@ -77,6 +79,7 @@
 										<th>Tipe</th>
 										<th>Nama</th>
 										<th>Link</th>
+										<th>Slug</th>
 										<th>Aksi</th>
 									</tr>
 								</tfoot>

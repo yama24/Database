@@ -61,6 +61,7 @@
 										<th>Desa/Kelurahan</th>
 										<th>Phone</th>
 										<th>Email</th>
+										<th>Grup</th>
 										<th>Aksi</th>
 									</tr>
 								</thead>
@@ -83,6 +84,7 @@
 											<td><?php echo ucwords(strtolower($b->villagesName)); ?></td>
 											<td><a href="https://wa.me/62<?php echo $b->basisPhone; ?>" target="_blank">0<?php echo $b->basisPhone; ?></a></td>
 											<td><a href="mailto:<?php echo $b->basisEmail; ?>" target="_blank"><?php echo $b->basisEmail; ?></a></td>
+											<td><?php echo ucwords(strtolower($b->basisGrup));?></td>
 											<td>
 												<center>
 													<button data-toggle="modal" data-target="#modal-edit-basis<?php echo $b->basisId; ?>" class="btn btn-info btn-xs" style="width: 70px;"><i class="fas fa-edit"></i> Edit</button>
@@ -107,6 +109,7 @@
 										<th>Desa/Kelurahan</th>
 										<th>Phone</th>
 										<th>Email</th>
+										<th>Grup</th>
 										<th>Aksi</th>
 									</tr>
 								</tfoot>

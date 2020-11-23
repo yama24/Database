@@ -29,6 +29,10 @@ class Welcome extends CI_Controller
 	}
 	public function index()
 	{
+		$this->load->view('404');
+	}
+	public function input()
+	{
 		$data['pekerjaan'] = $this->m_data->get_data('pekerjaan')->result();
 		$data['provinces'] = $this->m_data->get_provinsi();
 		$this->load->view('frontend/v_homepage', $data);
@@ -81,16 +85,16 @@ class Welcome extends CI_Controller
 		if ($this->session->userdata('status') != "telah_login_email") {
 			redirect(base_url() . '?alert=belum_isi');
 		}
-		$this->load->view('frontend/v_link', $data);
+		$this->load->view('frontend/v_link_input', $data);
 	}public function registered($slug)
 	{
 		$data['links'] = $this->m_data->getLinksBySlug($slug);
 		if ($this->session->userdata('slug') != $slug) {
 			redirect(base_url() . 'welcome/register/' . $slug . '?alert=belum_isi');
 		}
-		$this->load->view('frontend/v_link2', $data);
+		$this->load->view('frontend/v_link_register', $data);
 	}
-	public function form_submit()
+	public function form_submit_input()
 	{
 		// Wajib isi judul,konten dan kategori
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -121,6 +125,9 @@ class Welcome extends CI_Controller
 
 			$data = array(
 				'basis_nama' => $nama,
+				'slug' => "input database",
+				'grup' => "input database",
+				'tipe_grup' => "input database",
 				'basis_ttl' => $ttl,
 				'basis_gender' => $gender,
 				'basis_pekerjaan' => $pekerjaan,
@@ -182,11 +189,13 @@ class Welcome extends CI_Controller
 			redirect(base_url() . '?alert=isiulang');
 		}
 	}
-	public function form_submit2()
+	public function form_submit_register()
 	{
 		// Wajib isi judul,konten dan kategori
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('slug', 'Slug');
+		$this->form_validation->set_rules('grup', 'Grup');
+		$this->form_validation->set_rules('tipe_grup', 'Tipe Grup');
 		$this->form_validation->set_rules('ttl', 'Tanggal Lahir', 'required');
 		$this->form_validation->set_rules('gender', 'Gender', 'required');
 		$this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
@@ -201,6 +210,8 @@ class Welcome extends CI_Controller
 		if ($this->form_validation->run() != false) {
 			$nama = $this->input->post('nama');
 			$slug = $this->input->post('slug');
+			$grup = $this->input->post('grup');
+			$tipe_grup = $this->input->post('tipe_grup');
 			$ttl = $this->input->post('ttl');
 			$gender = $this->input->post('gender');
 			$pekerjaan = $this->input->post('pekerjaan');
@@ -216,6 +227,8 @@ class Welcome extends CI_Controller
 			$data = array(
 				'basis_nama' => $nama,
 				'slug' => $slug,
+				'grup' => $grup,
+				'tipe_grup' => $tipe_grup,
 				'basis_ttl' => $ttl,
 				'basis_gender' => $gender,
 				'basis_pekerjaan' => $pekerjaan,
@@ -244,6 +257,8 @@ class Welcome extends CI_Controller
 				'email' => $email,
 				'phone' => $email,
 				'slug' => $slug,
+				'grup' => $grup,
+				'tipe_grup' => $tipe_grup,
 				// 'photo' => $data->pengguna_foto,
 				// 'level' => $data->pengguna_level,
 				'status' => 'telah_login_email'
