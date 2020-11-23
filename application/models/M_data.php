@@ -52,6 +52,13 @@ class M_data extends CI_Model
 		$this->db->order_by("basis.basis_id", "desc");
 		return $this->db->get("basis");
 	}
-
+	public function getLinksBySlug($slug)
+	{
+		$this->db->select("*,links.links_id AS linksId, links.links_slug AS linksSlug, links.links_nama AS linksNama, links.links_tipe AS linksTipe, links.links AS links");
+		$this->db->from("links");
+		$this->db->order_by("links.links_id", "asc");
+		$this->db->where('links.links_slug', $slug);
+		return $this->db->get()->row_array();
+	}
 	// AKHIR FUNGSI CRUD
 }
