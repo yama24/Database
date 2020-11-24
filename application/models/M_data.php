@@ -32,6 +32,13 @@ class M_data extends CI_Model
 	{
 		$this->db->delete($table, $where);
 	}
+	public function distinct_pekerjaan()
+	{
+		$this->db->distinct('basis_pekerjaan');
+		$this->db->select('basis_pekerjaan');
+		$this->db->from('basis');
+		return $this->db->get();
+	}
 	public function distinct_provinsi()
 	{
 		$this->db->distinct('basis_provinsi');

@@ -16,8 +16,9 @@ class Dashboard extends CI_Controller
 	}
 	public function index()
 	{
+		$data['get_basis'] = $this->m_data->getBasis()->result();
 		$data['basis'] = $this->m_data->get_data('basis')->result();
-		$data['pekerjaan'] = $this->m_data->get_data('pekerjaan')->result();
+		$data['d_pekerjaan'] = $this->m_data->distinct_pekerjaan('basis')->result();
 		$data['d_provinsi'] = $this->m_data->distinct_provinsi('basis')->result();
 		$data['d_kabupaten'] = $this->m_data->distinct_kabupaten('basis')->result();
 		$data['page'] = "Dashboard";
