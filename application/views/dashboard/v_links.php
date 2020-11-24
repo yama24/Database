@@ -19,7 +19,7 @@
 			<?php
 			if (isset($_GET['alert'])) {
 				if ($_GET['alert'] == "fail") {
-					echo "<div class='alert alert-danger font-weight-bold text-center'>Link gagal diinput!</div>";
+					echo "<div class='alert alert-danger font-weight-bold text-center'>Link gagal diinput! Masukan nama atau link yang berbeda</div>";
 				} else if ($_GET['alert'] == "add") {
 					echo "<div class='alert alert-success font-weight-bold text-center'>Link berhasil diinput!</div>";
 				} else if ($_GET['alert'] == "update") {
@@ -29,7 +29,6 @@
 				}
 			}
 			?>
-
 			<!-- Main content -->
 			<section class="content">
 				<div class="container-fluid">
@@ -46,6 +45,7 @@
 								<thead>
 									<tr>
 										<th style="width: 1%;">No</th>
+										<th>Keperluan</th>
 										<th>Tipe</th>
 										<th>Nama</th>
 										<th>Link</th>
@@ -60,10 +60,19 @@
 									?>
 										<tr>
 											<td><?php echo $no++; ?></td>
+											<td><?php if ($l->tipe == 1) {
+												echo "Registrasi Event";
+											} else {
+												echo "Input Database";
+											}?></td>
 											<td><?php echo $l->links_tipe; ?></td>
 											<td><?php echo $l->links_nama; ?></td>
 											<td><a href="<?php echo $l->links; ?>" target="_blank"><?php echo $l->links; ?></a></td>
-											<td><a href="<?php echo base_url() . 'register/' . $l->links_slug;?>" target="_blank"><?php echo base_url() . 'register/' . $l->links_slug;?></a></td>
+											<td><?php if ($l->tipe == 1) {
+												echo '<a href="' . base_url() . 'register/' . $l->links_slug . '" target="_blank">' . base_url() . 'register/' . $l->links_slug . '</a>';
+											} else {
+												echo "Tidak diperlukan";
+											}?></td>
 											<td>
 												<center>
 													<button data-toggle="modal" data-target="#modal-edit-links<?php echo $l->links_id; ?>" class="btn btn-info btn-xs" style="width: 70px;"><i class="fas fa-edit"></i> Edit</button>
@@ -76,6 +85,7 @@
 								<tfoot>
 									<tr>
 										<th>No</th>
+										<th>Keperluan</th>
 										<th>Tipe</th>
 										<th>Nama</th>
 										<th>Link</th>
@@ -105,6 +115,13 @@
 					<form role="form" method="post" action="<?php echo base_url('dashboard/links_tambah') ?>">
 						<div class="modal-body">
 							<div class="card-body">
+								<div class="form-group">
+									<select class="form-control select2bs4" name="keperluan" required>
+										<option value="">- Pilih keperluan</option>
+										<option value="0">Input Database</option>
+										<option value="1">Registrasi Event</option>
+									</select>
+								</div>
 								<div class="form-group">
 									<label>Tipe</label>
 									<select class="form-control select2bs4" name="tipe" required>
@@ -146,6 +163,17 @@
 						<form role="form" method="post" action="<?php echo base_url('dashboard/links_update') ?>">
 							<div class="modal-body">
 								<div class="card-body">
+									<div class="form-group">
+										<select class="form-control select2bs4" name="keperluan" required>
+											<option value="">- Pilih keperluan</option>
+											<option <?php if ($l->tipe == 0) {
+												echo 'selected';
+											}?> value="0">Input Database</option>
+											<option <?php if ($l->tipe == 1) {
+												echo 'selected';
+											}?>  value="1">Registrasi Event</option>
+										</select>
+									</div>
 									<div class="form-group">
 										<label>Tipe</label>
 										<input type="hidden" name="id" value="<?php echo $l->links_id; ?>">

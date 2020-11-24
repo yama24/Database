@@ -30,7 +30,7 @@
 		</div>
 		<center><img src="<?php echo base_url() ?>assets/dist/img/internusa.png" alt="" width="50"></center>
 		<div class="login-logo">
-			<b>Input </b>Data
+			<b>Registrasi </b><?php echo ucwords(strtolower($links['linksNama']))?>
 		</div>
 		<!-- /.login-logo -->
 		<div class="card">
@@ -102,7 +102,7 @@
 							</div>
 						</div>
 					</div>
-					<label>Provinsi</label>
+					<label>Provinsi tempat tinggal</label>
 					<div class="input-group mb-3">
 						<select name="provinsi" class="form-control select2bs4" id="provinsi">
 							<option>- Pilih provinsi</option>

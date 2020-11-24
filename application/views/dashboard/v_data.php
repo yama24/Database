@@ -170,7 +170,7 @@
 									<input type="text" class="form-control" placeholder="Isi nama sekolah/kampus jika masih pelajar/mahasiswa" name="tempat_kerja" required>
 								</div>
 								<div class="form-group">
-									<label>Provinsi</label>
+									<label>Provinsi tempat tinggal</label>
 									<select class="form-control select2bs4" id="provinsi" name="provinsi" required>
 										<option value="">- Pilih provinsi</option>
 										<?php foreach ($get_provinces as $prov) {
@@ -276,7 +276,7 @@
 										<input type="text" class="form-control" name="tempat_kerja" value="<?php echo $b->basisTempatkerja; ?>" required>
 									</div>
 									<div class="form-group">
-										<label>Provinsi</label>
+										<label>Provinsi tempat tinggal</label>
 										<select class="form-control select2bs4" name="provinsi" id="provinsi<?php echo $b->basisId ?>" required>
 											<option value="">- Pilih Provinsi</option>
 											<?php

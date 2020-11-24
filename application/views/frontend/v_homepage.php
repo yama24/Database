@@ -98,7 +98,7 @@
 							</div>
 						</div>
 					</div>
-					<label>Provinsi</label>
+					<label>Provinsi tempat tinggal</label>
 					<div class="input-group mb-3">
 						<select name="provinsi" class="form-control select2bs4" id="provinsi">
 							<option>- Pilih provinsi</option>

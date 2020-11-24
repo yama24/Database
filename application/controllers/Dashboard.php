@@ -270,10 +270,12 @@ class Dashboard extends CI_Controller
 	}
 	public function links_tambah()
 	{
+		$this->form_validation->set_rules('keperluan', 'Keperluan');
 		$this->form_validation->set_rules('tipe', 'Tipe', 'required');
-		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required|is_unique[links.links_nama]');
 		$this->form_validation->set_rules('link', 'Link', 'required|is_unique[links.links]');
 		if ($this->form_validation->run() != false) {
+			$keperluan = $this->input->post('keperluan');
 			$tipe = $this->input->post('tipe');
 			$nama = $this->input->post('nama');
 			$links = $this->input->post('link');
@@ -286,6 +288,7 @@ class Dashboard extends CI_Controller
 				'links_nama' => $nama,
 				'links' => $links,
 				'links_slug' => $slugFix3,
+				'tipe' => $keperluan,
 			);
 			$this->m_data->insert_data($data, 'links');
 			redirect(base_url() . 'dashboard/links?alert=add');
@@ -296,11 +299,13 @@ class Dashboard extends CI_Controller
 	}
 	public function links_update()
 	{
+		$this->form_validation->set_rules('keperluan', 'Keperluan');
 		$this->form_validation->set_rules('tipe', 'Tipe', 'required');
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('link', 'Link', 'required');
 		if ($this->form_validation->run() != false) {
 			$id = $this->input->post('id');
+			$keperluan = $this->input->post('keperluan');
 			$tipe = $this->input->post('tipe');
 			$nama = $this->input->post('nama');
 			$links = $this->input->post('link');
@@ -316,6 +321,7 @@ class Dashboard extends CI_Controller
 				'links_nama' => $nama,
 				'links' => $links,
 				'links_slug' => $slugFix3,
+				'tipe' => $keperluan,
 			);
 			$this->m_data->update_data($where, $data, 'links');
 			redirect(base_url() . 'dashboard/links?alert=update');
