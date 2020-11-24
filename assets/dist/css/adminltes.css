@@ -20239,6 +20239,7 @@ html.maximized-card {
 .lockscreen {
   background-image:url(/assets/dist/img/p.jpg);
   background-position: top, center;
+  background-size: cover;
 }
 
 .lockscreen .lockscreen-name {

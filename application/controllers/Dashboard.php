@@ -48,7 +48,7 @@ class Dashboard extends CI_Controller
 	function add_ajax_kab($id_prov)
 	{
 		$query = $this->db->get_where('regencies', array('province_id' => $id_prov));
-		$data = "<option value=''>- Select Kabupaten -</option>";
+		$data = "<option value=''>- Pilih Kota/Kabupaten -</option>";
 		foreach ($query->result() as $value) {
 			$data .= "<option value='" . $value->id . "'>" . ucwords(strtolower($value->name)) . "</option>";
 		}
@@ -68,7 +68,7 @@ class Dashboard extends CI_Controller
 	function add_ajax_des($id_kec)
 	{
 		$query = $this->db->get_where('villages', array('district_id' => $id_kec));
-		$data = "<option value=''> - Pilih Desa - </option>";
+		$data = "<option value=''> - Pilih Desa/Kelurahan - </option>";
 		foreach ($query->result() as $value) {
 			$data .= "<option value='" . $value->id . "'>" . ucwords(strtolower($value->name)) . "</option>";
 		}

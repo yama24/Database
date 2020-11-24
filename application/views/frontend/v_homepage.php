@@ -98,31 +98,24 @@
 							</div>
 						</div>
 					</div>
-					<label>Provinsi tempat tinggal</label>
+					<label>Alamat</label>
 					<div class="input-group mb-3">
 						<select name="provinsi" class="form-control select2bs4" id="provinsi">
-							<option>- Pilih provinsi</option>
+							<option>- Pilih Provinsi</option>
 							<?php foreach ($provinces as $prov) {
 								echo '<option value="' . $prov->id . '">' . ucwords(strtolower($prov->name)) . '</option>';
 							} ?>
 						</select>
-					</div>
-					<label>Kota/Kabupaten</label>
-					<div class="input-group mb-3">
 						<select name="kabupaten" class="form-control select2bs4" id="kabupaten">
-							<option value=''>Loading</option>
+							<option value=''>Kota/Kabupaten</option>
 						</select>
 					</div>
-					<label>Kecamatan</label>
 					<div class="input-group mb-3">
 						<select name="kecamatan" class="form-control select2bs4" id="kecamatan">
-							<option value=''>Loading</option>
+							<option value=''>Kecamatan</option>
 						</select>
-					</div>
-					<label>Desa/Kelurahan</label>
-					<div class="input-group mb-3">
 						<select name="desa" class="form-control select2bs4" id="desa">
-							<option value=''>Loading</option>
+							<option value=''>Desa/Kelurahan</option>
 						</select>
 					</div>
 					<label>Nomor handphone</label>
@@ -145,25 +138,7 @@
 					</div>
 					<button class="btn btn-block btn-primary" type="submit">Submit</button>
 				</form>
-				<!-- <div class="social-auth-links text-center mb-3">
-					<p>- OR -</p>
-					<a href="#" class="btn btn-block btn-primary">
-						<i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-					</a>
-					<a href="#" class="btn btn-block btn-danger">
-						<i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-					</a>
-				</div> -->
-				<!-- /.social-auth-links -->
-
-				<!-- <p class="mb-1">
-					<a href="forgot-password.html">I forgot my password</a>
-				</p>
-				<p class="mb-0">
-					<a href="register.html" class="text-center">Register a new membership</a>
-				</p> -->
 			</div>
-			<!-- /.login-card-body -->
 		</div>
 	</div>
 	<!-- /.login-box -->

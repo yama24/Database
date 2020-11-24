@@ -170,30 +170,21 @@
 									<input type="text" class="form-control" placeholder="Isi nama sekolah/kampus jika masih pelajar/mahasiswa" name="tempat_kerja" required>
 								</div>
 								<div class="form-group">
-									<label>Provinsi tempat tinggal</label>
+									<label>Alamat</label>
 									<select class="form-control select2bs4" id="provinsi" name="provinsi" required>
 										<option value="">- Pilih provinsi</option>
 										<?php foreach ($get_provinces as $prov) {
 											echo '<option value="' . $prov->id . '">' . ucwords(strtolower($prov->name)) . '</option>';
 										} ?>
 									</select>
-								</div>
-								<div class="form-group">
-									<label>Kota/Kabupaten</label>
 									<select class="form-control select2bs4" id="kabupaten" name="kabupaten" required>
-										<option value="">Loading</option>
+										<option value="">Kota/Kabupaten</option>
 									</select>
-								</div>
-								<div class="form-group">
-									<label>Kecamatan</label>
 									<select class="form-control select2bs4" id="kecamatan" name="kecamatan" required>
-										<option value="">Loading</option>
+										<option value="">Kecamatan</option>
 									</select>
-								</div>
-								<div class="form-group">
-									<label>Desa/Kelurahan</label>
 									<select class="form-control select2bs4" id="desa" name="desa" required>
-										<option value="">Loading</option>
+										<option value="">Desa/Kelurahan</option>
 									</select>
 								</div>
 								<div class="form-group">
@@ -276,7 +267,7 @@
 										<input type="text" class="form-control" name="tempat_kerja" value="<?php echo $b->basisTempatkerja; ?>" required>
 									</div>
 									<div class="form-group">
-										<label>Provinsi tempat tinggal</label>
+										<label>Alamat</label>
 										<select class="form-control select2bs4" name="provinsi" id="provinsi<?php echo $b->basisId ?>" required>
 											<option value="">- Pilih Provinsi</option>
 											<?php
@@ -289,11 +280,8 @@
 												</option>
 											<?php } ?>
 										</select>
-									</div>
-									<div class="form-group">
-										<label>Kota/Kabupaten</label>
 										<select class="form-control select2bs4" name="kabupaten" id="kabupaten<?php echo $b->basisId ?>" required>
-											<option value="">Loading</option>
+											<option value="">Kota/Kabupaten</option>
 											<?php
 											$regencies = $this->db->get_where('regencies', array('province_id' => $b->provincesId));
 											foreach ($regencies->result() as $reg) {
@@ -305,11 +293,8 @@
 												</option>
 											<?php } ?>
 										</select>
-									</div>
-									<div class="form-group">
-										<label>Kecamatan</label>
 										<select class="form-control select2bs4" name="kecamatan" id="kecamatan<?php echo $b->basisId ?>" required>
-											<option value="">Loading</option>
+											<option value="">Kecamatan</option>
 											<?php
 											$districts = $this->db->get_where('districts', array('regency_id' => $b->regenciesId));
 											foreach ($districts->result() as $dis) {
@@ -321,11 +306,8 @@
 												</option>
 											<?php } ?>
 										</select>
-									</div>
-									<div class="form-group">
-										<label>Desa/Kelurahan</label>
 										<select class="form-control select2bs4" name="desa" id="desa<?php echo $b->basisId ?>" required>
-											<option value="">Loading</option>
+											<option value="">Desa/Kelurahan</option>
 											<?php
 											$villages = $this->db->get_where('villages', array('district_id' => $b->districtsId));
 											foreach ($villages->result() as $vil) {
