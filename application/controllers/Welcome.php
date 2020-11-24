@@ -81,9 +81,9 @@ class Welcome extends CI_Controller
 
 	public function terimakasih()
 	{
-		$data['links'] = $this->m_data->get_data('links')->result();
+		$data['links'] = $this->db->get_where('links', ['tipe' => 0])->result();
 		if ($this->session->userdata('status') != "telah_login_email") {
-			redirect(base_url() . '?alert=belum_isi');
+			redirect(base_url() . 'input?alert=belum_isi');
 		}
 		$this->load->view('frontend/v_link_input', $data);
 	}public function registered($slug)
