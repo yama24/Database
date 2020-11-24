@@ -32,16 +32,20 @@ class M_data extends CI_Model
 	{
 		$this->db->delete($table, $where);
 	}
-
-	function get_provinsi()
+	public function distinct_provinsi()
 	{
-		$this->db->select('*');
-		$this->db->from('provinces');
-		$query = $this->db->get();
-
-		return $query->result();
+		$this->db->distinct('basis_provinsi');
+		$this->db->select('basis_provinsi');
+		$this->db->from('basis');
+		return $this->db->get();
 	}
-
+	public function distinct_kabupaten()
+	{
+		$this->db->distinct('basis_kabupaten');
+		$this->db->select('basis_kabupaten');
+		$this->db->from('basis');
+		return $this->db->get();
+	}
 	public function getBasis()
 	{
 		$this->db->select("

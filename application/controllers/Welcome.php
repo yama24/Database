@@ -34,7 +34,7 @@ class Welcome extends CI_Controller
 	public function input()
 	{
 		$data['pekerjaan'] = $this->m_data->get_data('pekerjaan')->result();
-		$data['provinces'] = $this->m_data->get_provinsi();
+		$data['provinces'] = $this->m_data->get_data('provinces')->result();
 		$this->load->view('frontend/v_homepage', $data);
 	}
 	public function register($slug)
@@ -45,7 +45,7 @@ class Welcome extends CI_Controller
 		} else {
 			$data['links'] = $getLinks;
 			$data['pekerjaan'] = $this->m_data->get_data('pekerjaan')->result();
-			$data['provinces'] = $this->m_data->get_provinsi();
+			$data['provinces'] = $this->m_data->get_data('provinces')->result();
 			$this->load->view('frontend/v_register', $data);	
 		}
 	}

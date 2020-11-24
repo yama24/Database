@@ -16,17 +16,32 @@ class Dashboard extends CI_Controller
 	}
 	public function index()
 	{
+		$data['basis'] = $this->m_data->get_data('basis')->result();
+		$data['pekerjaan'] = $this->m_data->get_data('pekerjaan')->result();
+		$data['d_provinsi'] = $this->m_data->distinct_provinsi('basis')->result();
+		$data['d_kabupaten'] = $this->m_data->distinct_kabupaten('basis')->result();
+		$data['page'] = "Dashboard";
+		if ($this->session->userdata('level') == "admin") {
+			$this->load->view('dashboard/v_header', $data);
+			$this->load->view('dashboard/v_dashboard', $data);
+			$this->load->view('dashboard/v_footerv2');
+		} else {
+			redirect(base_url('dashboard'));
+		}
+	}
+	public function basis()
+	{
 		// $data['basis'] = $this->m_data->get_data('basis')->result();
 		$data['get_basis'] = $this->m_data->getBasis()->result();
 		$data['pekerjaan'] = $this->m_data->get_data('pekerjaan')->result();
 		$data['provinces'] = $this->m_data->get_data('provinces')->result();
-		$data['get_provinces'] = $this->m_data->get_provinsi();
+		$data['page'] = "Basis Data";
 		// $data['regencies'] = $this->m_data->get_data('regencies')->result();
 		// $data['districts'] = $this->m_data->get_data('districts')->result();
 		// $data['villages'] = $this->m_data->get_data('villages')->result();
 		if ($this->session->userdata('level') == "admin") {
-			$this->load->view('dashboard/v_header');
-			$this->load->view('dashboard/v_data', $data);
+			$this->load->view('dashboard/v_header', $data);
+			$this->load->view('dashboard/v_basis', $data);
 			$this->load->view('dashboard/v_footerv2');
 		} else {
 			redirect(base_url('dashboard'));
@@ -260,8 +275,9 @@ class Dashboard extends CI_Controller
 	{
 		$data['links'] = $this->m_data->get_data('links')->result();
 		$data['linkstype'] = $this->m_data->get_data('linkstype')->result();
+		$data['page'] = "Link";
 		if ($this->session->userdata('level') == "admin") {
-			$this->load->view('dashboard/v_header');
+			$this->load->view('dashboard/v_header', $data);
 			$this->load->view('dashboard/v_links', $data);
 			$this->load->view('dashboard/v_footer');
 		} else {
@@ -345,8 +361,9 @@ class Dashboard extends CI_Controller
 	public function pekerjaan()
 	{
 		$data['pekerjaan'] = $this->m_data->get_data('pekerjaan')->result();
+		$data['page'] = "Pekerjaan";
 		if ($this->session->userdata('level') == "admin") {
-			$this->load->view('dashboard/v_header');
+			$this->load->view('dashboard/v_header', $data);
 			$this->load->view('dashboard/v_pekerjaan', $data);
 			$this->load->view('dashboard/v_footer');
 		} else {
@@ -407,7 +424,8 @@ class Dashboard extends CI_Controller
 			'pengguna_id' => $id_pengguna
 		);
 		$data['profil'] = $this->m_data->edit_data($where, 'pengguna')->result();
-		$this->load->view('dashboard/v_header');
+		$data['page'] = "Profil";
+		$this->load->view('dashboard/v_header', $data);
 		$this->load->view('dashboard/v_profil', $data);
 		$this->load->view('dashboard/v_footer');
 	}

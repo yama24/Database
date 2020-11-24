@@ -8,7 +8,7 @@ $user = $this->db->query("select * from pengguna where pengguna_id='$id_user'")-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Database | Dashboard</title>
+	<title>Database | <?php echo $page?></title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -113,19 +113,23 @@ $user = $this->db->query("select * from pengguna where pengguna_id='$id_user'")-
 							</a>
 						</li>
 						<li class="nav-header">CONTENT</li>
-						<?php
-						//cek jika yang login adalah admin
-						if ($this->session->userdata('level') == "admin") {
-						?>
-							<li class="nav-item">
-								<a href="<?php echo base_url() . 'dashboard/pekerjaan' ?>" class="nav-link">
-									<i class="nav-icon fas fa-user-tie"></i>
-									<p>
-										Pekerjaan
-									</p>
-								</a>
-							</li>
-						<?php } ?>
+						<!-- //cek jika yang login adalah admin -->
+						<li class="nav-item">
+							<a href="<?php echo base_url() . 'dashboard/basis' ?>" class="nav-link">
+								<i class="nav-icon fas fa-database"></i>
+								<p>
+									Basis Data
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?php echo base_url() . 'dashboard/pekerjaan' ?>" class="nav-link">
+								<i class="nav-icon fas fa-user-tie"></i>
+								<p>
+									Pekerjaan
+								</p>
+							</a>
+						</li>
 						<li class="nav-item">
 							<a href="<?php echo base_url() . 'dashboard/links' ?>" class="nav-link">
 								<i class="nav-icon fas fa-link"></i>
