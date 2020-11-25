@@ -21,11 +21,13 @@ class Dashboard extends CI_Controller
 		$data['d_pekerjaan'] = $this->m_data->distinct_pekerjaan('basis')->result();
 		$data['d_provinsi'] = $this->m_data->distinct_provinsi('basis')->result();
 		$data['d_kabupaten'] = $this->m_data->distinct_kabupaten('basis')->result();
+		// $tgl['nov'] = $this->m_data->nov('basis')->result();
+		$tgl['nov'] = $this->m_data->get_data('basis')->result();
 		$data['page'] = "Dashboard";
 		if ($this->session->userdata('level') == "admin") {
 			$this->load->view('dashboard/v_header', $data);
 			$this->load->view('dashboard/v_dashboard', $data);
-			$this->load->view('dashboard/v_footerv2');
+			$this->load->view('dashboard/v_footerv2', $tgl);
 		} else {
 			redirect(base_url('dashboard'));
 		}

@@ -53,6 +53,11 @@ class M_data extends CI_Model
 		$this->db->from('basis');
 		return $this->db->get();
 	}
+	public function nov()
+	{
+		$this->db->where('basis_datainput', "2020-11-");
+		return $this->db->get();
+	}
 	public function getBasis()
 	{
 		$this->db->select("

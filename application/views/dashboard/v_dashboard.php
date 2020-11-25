@@ -91,8 +91,8 @@
 						<div class="card-body">
 							<div class="d-flex">
 								<p class="d-flex flex-column">
-									<span class="text-bold text-lg">$18,230.00</span>
-									<span>Sales Over Time</span>
+									<span class="text-bold text-lg"><?php echo count($basis) ?></span>
+									<span>Data Over Time</span>
 								</p>
 								<p class="ml-auto d-flex flex-column text-right">
 									<!-- <span class="text-success">
@@ -113,7 +113,7 @@
 								</span>
 
 								<span>
-									<i class="fas fa-square text-gray"></i> Last year
+									<i class="fas fa-square text-warning"></i> Last year
 								</span>
 							</div>
 						</div>
