@@ -131,12 +131,12 @@
 				datasets: [{
 						backgroundColor: '#007bff',
 						borderColor: '#007bff',
-						data: [<?php echo count($nov)?>, 1, 2, 3, 4, 5, 6]
+						data: [<?= count($jan1)?>, <?= count($feb1)?>, <?= count($mar1)?>, <?= count($apr1)?>, <?= count($mei1)?>, <?= count($jun1)?>, <?= count($jul1)?>, <?= count($agu1)?>, <?= count($sep1)?>, <?= count($okt1)?>, <?= count($nov1)?>, <?= count($des1)?>]
 					},
 					{
 						backgroundColor: '#FFC107',
 						borderColor: '#FFC107',
-						data: [7, 6, 5, 4, 3, 2, 1]
+						data: [<?= count($jan2)?>, <?= count($feb2)?>, <?= count($mar2)?>, <?= count($apr2)?>, <?= count($mei2)?>, <?= count($jun2)?>, <?= count($jul2)?>, <?= count($agu2)?>, <?= count($sep2)?>, <?= count($okt2)?>, <?= count($nov2)?>, <?= count($des2)?>]
 					}
 				]
 			},

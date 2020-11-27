@@ -121,7 +121,11 @@ class Welcome extends CI_Controller
 			$desa = $this->input->post('desa');
 			$phone = $this->input->post('phone');
 			$email = $this->input->post('email');
-			$datainput = date('Y-m-d H:i:s');
+			// $datainput = date('Y-m-d H:i:s');
+			$input_year = date('Y');
+			$input_month = date('m');
+			$input_date = date('d');
+			$input_time = date('H:i:s');
 
 			$data = array(
 				'basis_nama' => $nama,
@@ -138,7 +142,11 @@ class Welcome extends CI_Controller
 				'basis_desa' => $desa,
 				'basis_phone' => $phone,
 				'basis_email' => $email,
-				'basis_datainput' => $datainput,
+				'input_year' => $input_year,
+				'input_month' => $input_month,
+				'input_date' => $input_date,
+				'input_time' => $input_time,
+				'status' => "1",
 			);
 			$this->m_data->insert_data($data, 'basis');
 			// $where = array(
@@ -222,7 +230,11 @@ class Welcome extends CI_Controller
 			$desa = $this->input->post('desa');
 			$phone = $this->input->post('phone');
 			$email = $this->input->post('email');
-			$datainput = date('Y-m-d H:i:s');
+			// $datainput = date('Y-m-d H:i:s');
+			$input_year = date('Y');
+			$input_month = date('m');
+			$input_date = date('d');
+			$input_time = date('H:i:s');
 
 			$data = array(
 				'basis_nama' => $nama,
@@ -239,7 +251,11 @@ class Welcome extends CI_Controller
 				'basis_desa' => $desa,
 				'basis_phone' => $phone,
 				'basis_email' => $email,
-				'basis_datainput' => $datainput,
+				'input_year' => $input_year,
+				'input_month' => $input_month,
+				'input_date' => $input_date,
+				'input_time' => $input_time,
+				'status' => "2",
 			);
 			$this->m_data->insert_data($data, 'basis');
 			// $where = array(

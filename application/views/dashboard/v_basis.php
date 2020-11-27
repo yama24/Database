@@ -72,7 +72,7 @@
 									?>
 										<tr>
 											<td><?php echo $no++; ?></td>
-											<td><?php echo $b->basisDatainput; ?></td>
+											<td><?php echo $b->year; ?>-<?php echo $b->month; ?>-<?php echo $b->date; ?> <?php echo $b->time; ?></td>
 											<td><?php echo $b->basisNama; ?></td>
 											<td><?php echo $b->basisTtl; ?></td>
 											<td><?php echo $b->basisPekerjaan; ?></td>

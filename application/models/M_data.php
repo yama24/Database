@@ -53,9 +53,268 @@ class M_data extends CI_Model
 		$this->db->from('basis');
 		return $this->db->get();
 	}
-	public function nov()
+	public function jan1()
 	{
-		$this->db->where('basis_datainput', "2020-11-");
+		$month = 1;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function feb1()
+	{
+		$month = 2;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function mar1()
+	{
+		$month = 3;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function apr1()
+	{
+		$month = 4;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function mei1()
+	{
+		$month = 5;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function jun1()
+	{
+		$month = 6;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function jul1()
+	{
+		$month = 7;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function agu1()
+	{
+		$month = 8;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function sep1()
+	{
+		$month = 9;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function okt1()
+	{
+		$month = 10;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function nov1()
+	{
+		$month = 11;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function des1()
+	{
+		$month = 12;
+		$year = date('Y');
+		$status = 1;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function jan2()
+	{
+		$month = 1;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function feb2()
+	{
+		$month = 2;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function mar2()
+	{
+		$month = 3;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function apr2()
+	{
+		$month = 4;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function mei2()
+	{
+		$month = 5;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function jun2()
+	{
+		$month = 6;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function jul2()
+	{
+		$month = 7;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function agu2()
+	{
+		$month = 8;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function sep2()
+	{
+		$month = 9;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function okt2()
+	{
+		$month = 10;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function nov2()
+	{
+		$month = 11;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
+		return $this->db->get();
+	}
+	public function des2()
+	{
+		$month = 12;
+		$year = date('Y');
+		$status = 2;
+		$this->db->where('status', $status);
+		$this->db->where('input_month', $month);
+		$this->db->where('input_year', $year);
+		$this->db->from('basis');
 		return $this->db->get();
 	}
 	public function getBasis()
@@ -77,7 +336,10 @@ class M_data extends CI_Model
 		villages.id AS villagesId, 
 		basis.basis_phone AS basisPhone, 
 		basis.basis_email AS basisEmail, 
-		basis.basis_datainput AS basisDatainput, 
+		basis.input_year AS year, 
+		basis.input_month AS month, 
+		basis.input_date AS date, 
+		basis.input_time AS time, 
 		basis.tipe_grup AS basisTipegrup,
 		basis.grup AS basisGrup,
 		basis.slug AS basisSlug

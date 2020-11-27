@@ -21,8 +21,31 @@ class Dashboard extends CI_Controller
 		$data['d_pekerjaan'] = $this->m_data->distinct_pekerjaan('basis')->result();
 		$data['d_provinsi'] = $this->m_data->distinct_provinsi('basis')->result();
 		$data['d_kabupaten'] = $this->m_data->distinct_kabupaten('basis')->result();
-		// $tgl['nov'] = $this->m_data->nov('basis')->result();
-		$tgl['nov'] = $this->m_data->get_data('basis')->result();
+		$tgl['jan1'] = $this->m_data->jan1('basis')->result();
+		$tgl['feb1'] = $this->m_data->feb1('basis')->result();
+		$tgl['mar1'] = $this->m_data->mar1('basis')->result();
+		$tgl['apr1'] = $this->m_data->apr1('basis')->result();
+		$tgl['mei1'] = $this->m_data->mei1('basis')->result();
+		$tgl['jun1'] = $this->m_data->jun1('basis')->result();
+		$tgl['jul1'] = $this->m_data->jul1('basis')->result();
+		$tgl['agu1'] = $this->m_data->agu1('basis')->result();
+		$tgl['sep1'] = $this->m_data->sep1('basis')->result();
+		$tgl['okt1'] = $this->m_data->okt1('basis')->result();
+		$tgl['nov1'] = $this->m_data->nov1('basis')->result();
+		$tgl['des1'] = $this->m_data->des1('basis')->result();
+		$tgl['jan2'] = $this->m_data->jan2('basis')->result();
+		$tgl['feb2'] = $this->m_data->feb2('basis')->result();
+		$tgl['mar2'] = $this->m_data->mar2('basis')->result();
+		$tgl['apr2'] = $this->m_data->apr2('basis')->result();
+		$tgl['mei2'] = $this->m_data->mei2('basis')->result();
+		$tgl['jun2'] = $this->m_data->jun2('basis')->result();
+		$tgl['jul2'] = $this->m_data->jul2('basis')->result();
+		$tgl['agu2'] = $this->m_data->agu2('basis')->result();
+		$tgl['sep2'] = $this->m_data->sep2('basis')->result();
+		$tgl['okt2'] = $this->m_data->okt2('basis')->result();
+		$tgl['nov2'] = $this->m_data->nov2('basis')->result();
+		$tgl['des2'] = $this->m_data->des2('basis')->result();
+		// $tgl['nov'] = $this->m_data->get_data('basis')->result();
 		$data['page'] = "Dashboard";
 		if ($this->session->userdata('level') == "admin") {
 			$this->load->view('dashboard/v_header', $data);
@@ -119,7 +142,11 @@ class Dashboard extends CI_Controller
 			$desa = $this->input->post('desa');
 			$phone = $this->input->post('phone');
 			$email = $this->input->post('email');
-			$datainput = date('Y-m-d H:i:s');
+			// $datainput = date('Y-m-d H:i:s');
+			$input_year = date('Y');
+			$input_month = date('m');
+			$input_date = date('d');
+			$input_time = date('H:i:s');
 
 			$data = array(
 				'basis_nama' => $nama,
@@ -136,32 +163,36 @@ class Dashboard extends CI_Controller
 				'basis_desa' => $desa,
 				'basis_phone' => $phone,
 				'basis_email' => $email,
-				'basis_datainput' => $datainput,
+				'input_year' => $input_year,
+				'input_month' => $input_month,
+				'input_date' => $input_date,
+				'input_time' => $input_time,
+				'status' => "1",
 			);
 			$this->m_data->insert_data($data, 'basis');
-			$data['links'] = $this->m_data->get_data('links')->result();
-			$data['user'] = $nama;
-			$config['charset'] = 'utf-8';
-			$config['smtp_crypto'] = $this->config->item('smtp_crypto');
-			$config['protocol'] = 'smtp';
-			$config['mailtype'] = 'html';
-			$config['smtp_host'] = $this->config->item('host_mail');
-			$config['smtp_port'] = $this->config->item('port_mail');
-			$config['smtp_timeout'] = '5';
-			$config['smtp_user'] = $this->config->item('mail_account');
-			$config['smtp_pass'] = $this->config->item('pass_mail');
-			$config['crlf'] = "\r\n";
-			$config['newline'] = "\r\n";
-			$config['wordwrap'] = TRUE;
+			// $data['links'] = $this->m_data->get_data('links')->result();
+			// $data['user'] = $nama;
+			// $config['charset'] = 'utf-8';
+			// $config['smtp_crypto'] = $this->config->item('smtp_crypto');
+			// $config['protocol'] = 'smtp';
+			// $config['mailtype'] = 'html';
+			// $config['smtp_host'] = $this->config->item('host_mail');
+			// $config['smtp_port'] = $this->config->item('port_mail');
+			// $config['smtp_timeout'] = '5';
+			// $config['smtp_user'] = $this->config->item('mail_account');
+			// $config['smtp_pass'] = $this->config->item('pass_mail');
+			// $config['crlf'] = "\r\n";
+			// $config['newline'] = "\r\n";
+			// $config['wordwrap'] = TRUE;
 
-			$mesg = $this->load->view('email/notif.php', $data, TRUE);
-			$this->load->library('email', $config);
+			// $mesg = $this->load->view('email/notif.php', $data, TRUE);
+			// $this->load->library('email', $config);
 
-			$this->email->from($this->config->item('mail_account'), $this->config->item('app_name'));
-			$this->email->to($email);
-			$this->email->subject('Notifikasi Input Data');
-			$this->email->message($mesg);
-			$this->email->send();
+			// $this->email->from($this->config->item('mail_account'), $this->config->item('app_name'));
+			// $this->email->to($email);
+			// $this->email->subject('Notifikasi Input Data');
+			// $this->email->message($mesg);
+			// $this->email->send();
 			redirect(base_url() . 'dashboard?alert=add');
 		} else {
 			// Ini tak terpakai
