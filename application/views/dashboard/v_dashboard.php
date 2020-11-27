@@ -39,7 +39,7 @@
 							<!-- small box -->
 							<div class="small-box bg-success">
 								<div class="inner">
-									<h3><?php echo count($d_pekerjaan) ?></h3>
+									<h3><?php echo count($d_pekerjaan) ?><small> dari <?php echo count($pekerjaan) ?></small></h3>
 									<p>Data Pekerjaan</p>
 								</div>
 								<div class="icon">
@@ -53,7 +53,7 @@
 							<!-- small box -->
 							<div class="small-box bg-primary">
 								<div class="inner">
-									<h3><?php echo count($d_provinsi) ?></h3>
+									<h3><?php echo count($d_provinsi) ?><small> dari <?php echo count($provinsi) ?></small></h3>
 
 									<p>Data Provinsi</p>
 								</div>
@@ -68,7 +68,7 @@
 							<!-- small box -->
 							<div class="small-box bg-danger">
 								<div class="inner">
-									<h3><?php echo count($d_kabupaten) ?></h3>
+									<h3><?php echo count($d_kabupaten) ?><small> dari <?php echo count($kabupaten) ?></small></h3>
 
 									<p>Data Kota/Kabupaten</p>
 								</div>
@@ -92,7 +92,7 @@
 							<div class="d-flex">
 								<p class="d-flex flex-column">
 									<span class="text-bold text-lg"><?php echo count($basis) ?></span>
-									<span>Data Over Time</span>
+									<span>Data Total</span>
 								</p>
 								<p class="ml-auto d-flex flex-column text-right">
 									<!-- <span class="text-success">

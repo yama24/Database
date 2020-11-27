@@ -105,7 +105,9 @@ $user = $this->db->query("select * from pengguna where pengguna_id='$id_user'")-
 					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 						<!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
 						<li class="nav-item">
-							<a href="<?php echo base_url() . 'dashboard' ?>" class="nav-link">
+							<a href="<?php echo base_url() . 'dashboard' ?>" class="nav-link <?php if ($page == "Dashboard") {
+								echo "active";
+							}?>">
 								<i class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
 									Dashboard
@@ -115,7 +117,9 @@ $user = $this->db->query("select * from pengguna where pengguna_id='$id_user'")-
 						<li class="nav-header">CONTENT</li>
 						<!-- //cek jika yang login adalah admin -->
 						<li class="nav-item">
-							<a href="<?php echo base_url() . 'dashboard/basis' ?>" class="nav-link">
+							<a href="<?php echo base_url() . 'dashboard/basis' ?>" class="nav-link <?php if ($page == "Basis Data") {
+								echo "active";
+							}?>">
 								<i class="nav-icon fas fa-database"></i>
 								<p>
 									Basis Data
@@ -123,7 +127,9 @@ $user = $this->db->query("select * from pengguna where pengguna_id='$id_user'")-
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?php echo base_url() . 'dashboard/pekerjaan' ?>" class="nav-link">
+							<a href="<?php echo base_url() . 'dashboard/pekerjaan' ?>" class="nav-link <?php if ($page == "Pekerjaan") {
+								echo "active";
+							}?>">
 								<i class="nav-icon fas fa-user-tie"></i>
 								<p>
 									Pekerjaan
@@ -131,7 +137,9 @@ $user = $this->db->query("select * from pengguna where pengguna_id='$id_user'")-
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?php echo base_url() . 'dashboard/links' ?>" class="nav-link">
+							<a href="<?php echo base_url() . 'dashboard/links' ?>" class="nav-link <?php if ($page == "Link") {
+								echo "active";
+							}?>">
 								<i class="nav-icon fas fa-link"></i>
 								<p>
 									Link

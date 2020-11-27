@@ -18,8 +18,11 @@ class Dashboard extends CI_Controller
 	{
 		$data['get_basis'] = $this->m_data->getBasis()->result();
 		$data['basis'] = $this->m_data->get_data('basis')->result();
+		$data['pekerjaan'] = $this->m_data->get_data('pekerjaan')->result();
 		$data['d_pekerjaan'] = $this->m_data->distinct_pekerjaan('basis')->result();
+		$data['provinsi'] = $this->m_data->get_data('provinces')->result();
 		$data['d_provinsi'] = $this->m_data->distinct_provinsi('basis')->result();
+		$data['kabupaten'] = $this->m_data->get_data('regencies')->result();
 		$data['d_kabupaten'] = $this->m_data->distinct_kabupaten('basis')->result();
 		$tgl['jan1'] = $this->m_data->jan1('basis')->result();
 		$tgl['feb1'] = $this->m_data->feb1('basis')->result();
