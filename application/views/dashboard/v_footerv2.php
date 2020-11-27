@@ -158,9 +158,9 @@
 						// display: false,
 						gridLines: {
 							display: true,
-							lineWidth: '4px',
+							// lineWidth: '4px',
 							color: 'rgba(0, 0, 0, .2)',
-							zeroLineColor: 'transparent'
+							// zeroLineColor: 'transparent'
 						},
 						ticks: $.extend({
 							beginAtZero: true,
