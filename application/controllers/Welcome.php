@@ -86,7 +86,8 @@ class Welcome extends CI_Controller
 			redirect(base_url() . 'input?alert=belum_isi');
 		}
 		$this->load->view('frontend/v_link_input', $data);
-	}public function registered($slug)
+	}
+	public function registered($slug)
 	{
 		$data['links'] = $this->m_data->getLinksBySlug($slug);
 		if ($this->session->userdata('slug') != $slug) {
